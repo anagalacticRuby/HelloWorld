@@ -32,7 +32,7 @@ public static void main(String[] args) {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        scenetitle.setId("welcome-text");
         grid.add(scenetitle, 0, 0, 2, 1);
 
         Label userName = new Label("User Name:");
@@ -61,11 +61,13 @@ public static void main(String[] args) {
 
             @Override
             public void handle(ActionEvent e) {
-                actiontarget.setFill(Color.FIREBRICK);
+                actiontarget.setId("actiontarget");
                 actiontarget.setText("Sign in button pressed");
             }
         });
+        //Scene scene = new Scene(grid, 300,275);
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(Main.class.getResource("Login.css").toExternalForm());
         primaryStage.show();
         //grid.setGridLinesVisible(true);
 
